@@ -1,0 +1,3 @@
+  // cout << count0 << endl;
+    // cout << count1 << endl;
+    // cout << count2 << endl;
