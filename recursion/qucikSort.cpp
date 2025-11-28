@@ -11,7 +11,7 @@ int partion(int arr[], int l, int h)
         do
         {
             i++;
-        } while (arr[i] <= pivot);
+        } while (arr[i] < pivot);
 
         do
         {
@@ -55,7 +55,7 @@ int main()
                   3,
                   9,
                   5,
-                  0};
+                  11};
     int l = 0;
     int h = n - 1;
     // int partEle = partion(arr, l, h);
