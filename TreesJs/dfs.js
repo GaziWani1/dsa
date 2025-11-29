@@ -33,8 +33,5 @@ const bfs = (r) => {
     return result
 }
 
-
-
 const res = bfs(root);
 console.log(res);
-
