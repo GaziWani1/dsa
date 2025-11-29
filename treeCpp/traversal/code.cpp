@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 
 class Node
@@ -61,12 +62,42 @@ void postOrderTra(Node *root)
 
 void levelTraverse(Node *root)
 {
-    
+    queue<Node *> q;
+
+    q.push(root);
+    q.push(NULL);
+
+    while (q.size() > 0)
+    {
+        Node *curr = q.front();
+        q.pop();
+
+        if (curr == NULL)
+        {
+            if (!q.empty())
+            {
+                cout << endl;
+                q.push(NULL);
+                continue;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        cout << curr->data << "  ";
+        if (curr->left != NULL)
+            q.push(curr->left);
+        if (curr->right != NULL)
+            q.push(curr->right);
+    }
+    cout << endl;
 }
 
 int main()
 {
-    int preorder[] = {1, 2, -1, 3, 4, -1, -1, 5, -1, -1};
+    int preorder[] = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
     int n = sizeof(preorder) / sizeof(preorder[0]);
 
     Node *root = buildTree(preorder, n);
@@ -78,5 +109,9 @@ int main()
     cout << endl
          << "POST ORDER" << endl;
     postOrderTra(root);
+    cout << endl
+         << "LEVEL TRAVERSE" << endl;
+    levelTraverse(root);
+
     return 0;
 }
