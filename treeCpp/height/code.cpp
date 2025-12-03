@@ -54,6 +54,17 @@ int nodeCount(Node *root)
     return leftCount + rightCount + 1;
 }
 
+int sumNodes(Node *root)
+{
+    if (root == NULL)
+        return 0;
+
+    int leftSum = sumNodes(root->left);
+    int rightSum = sumNodes(root->right);
+
+    return leftSum + rightSum + root->data;
+}
+
 int main()
 {
     vector<int> preorder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
@@ -62,6 +73,8 @@ int main()
 
     cout << "Height : " << height(root) << endl;
     cout << "Count : " << nodeCount(root) << endl;
+
+    cout << "Sum of nodes : " << sumNodes(root) << endl;
 
     return 0;
 }

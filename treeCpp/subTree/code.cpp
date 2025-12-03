@@ -1,0 +1,67 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int val)
+    {
+        data = val;
+        left = right = NULL;
+    }
+};
+
+static int idx = -1;
+
+// Build tree from preorder with -1 as NULL marker
+Node *buildTree(const vector<int> &preorder)
+{
+    idx++;
+    if (idx >= preorder.size() || preorder[idx] == -1)
+        return NULL;
+
+    Node *root = new Node(preorder[idx]);
+
+    root->left = buildTree(preorder);
+    root->right = buildTree(preorder);
+
+    return root;
+}
+
+bool isIdentical(Node *p, Node *q)
+{
+
+    if (q == NULL || p == NULL)
+        return p == q;
+    bool isLeftSame = isIdentical(p->left, q->left);
+    bool isRightSame = isIdentical(p->right, q->right);
+
+    return isLeftSame && isRightSame && p->data == q->data;
+}
+
+bool isSubTree(Node *root, Node *subRoot)
+{
+    if (root == NULL || subRoot == NULL)
+        return root == subRoot;
+    if (root->data == subRoot->data && isIdentical(root, subRoot))
+        return true;
+    return isSubTree(root->left, subRoot) || isSubTree(root->right, subRoot);
+}
+
+int main()
+{
+    vector<int> preorder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
+
+    vector<int> preorder2 = {
+        3, 4, -1, -1, 5, -1, -1};
+    Node *root1 = buildTree(preorder);
+    idx = -1;
+    Node *root2 = buildTree(preorder2);
+    cout << "Is SubTree : " << isSubTree(root1, root2) << endl;
+    return 0;
+}

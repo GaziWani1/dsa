@@ -42,7 +42,7 @@ void preorderTraveral(Node *root)
     preorderTraveral(root->right);
 }
 
-void inorderTraveral(Node *root)
+void inorderTraveral(Node *root)˝
 {
     if (root == NULL)
         return;
