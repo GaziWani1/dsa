@@ -3,7 +3,6 @@ using namespace std;
 
 void merge(int arr[], int st, int mid, int end)
 {
-    // cout << "ST :" << st << " MID : " << mid << " END :" << end << endl;
 
     int n = mid - st + 1;
     int m = end - mid;
@@ -22,7 +21,6 @@ void merge(int arr[], int st, int mid, int end)
     while (i <= mid)
         temp[k++] = arr[i++];
 
-    // leftover right part
     while (j <= end)
         temp[k++] = arr[j++];
 

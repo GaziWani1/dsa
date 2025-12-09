@@ -52,7 +52,7 @@ double fractionalKnapsack(int W, vector<Item> &items)
 int main()
 {
     int n = 3;
-    int CAPACITY = 50;
+    int CAPACITY = 15;
 
     vector<Item> items;
 
