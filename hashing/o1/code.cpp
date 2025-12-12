@@ -41,7 +41,6 @@ public:
 
         for (int i = 0; i < strlen(key); i++)
         {
-            cout << key[i] << endl;
             sum = (sum + (key[i] * factor) % capacity) % capacity;
             factor = (factor * 31) % 32767;
         }
@@ -73,6 +72,8 @@ public:
     {
         int index = hashFunction(key);
         Node *curr = table[index];
+
+        cout << table[index] << endl;
 
         while (curr != nullptr)
         {
@@ -106,8 +107,6 @@ int main()
 {
     HashMap mp;
     mp.insert((char *)"Yogaholic", (char *)"Anjali");
-    // mp.insert((char *)"pluto14", (char *)"Vartika");
-    // cout << mp.search((char *)"Yogaholic") << endl;
-    // mp.printTable();
+    cout << mp.search((char *)"Yogaholic") << endl;
     return 0;
 }
