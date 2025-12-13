@@ -1,5 +1,11 @@
 #include <iostream>
 using namespace std;
+void printArr(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
 
 int getMax(int arr[], int n)
 {
@@ -46,12 +52,12 @@ void radixSort(int arr[], int n)
 int main()
 {
     const int n = 10;
-    int arr[n] = {12, 48, 21, 30, 17, 93, 880, 69, 72, 53};
+    int arr[n] = {12, 42, 21, 30, 17, 93, 880, 69, 72, 53};
 
     radixSort(arr, n);
 
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << endl;
+    // for (int i = 0; i < n; i++)
+    //     cout << arr[i] << endl;
 
     return 0;
 }
