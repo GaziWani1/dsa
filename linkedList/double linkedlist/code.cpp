@@ -99,9 +99,9 @@ public:
 
         if (head != NULL)
         {
-            tail->prev = NULL;
+            tail->next = NULL;
         }
-        temp->next = NULL;
+        temp->prev = NULL;
         delete temp;
     }
 };
@@ -118,6 +118,10 @@ int main()
 
     dll.push_back(89);
     dll.push_back(1);
+
+    dll.print();
+
+    dll.popBack();
 
     dll.print();
 
