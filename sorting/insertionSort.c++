@@ -12,7 +12,6 @@ void insertionSort(int arr[], int n) // O (n^2)
             arr[prev + 1] = arr[prev];
             prev--;
         }
-
         arr[prev + 1] = currentEle;
     }
 }
