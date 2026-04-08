@@ -4,13 +4,13 @@ using namespace std;
 class Graph
 {
     int V;
-    int **matrix; // [] -> []
+    int **matrix;
 
 public:
     Graph(int V = 5)
     {
         this->V = V;
-        matrix = new int *[V]; // STORES THE INT ADDRESS
+        matrix = new int *[V];
 
         for (int i = 0; i < V; i++)
         {

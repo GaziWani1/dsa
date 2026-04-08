@@ -1,6 +1,5 @@
 #include <iostream>
-#include <list>   // inbuild
-#include <vector> // inbuild
+#include <list> // inbuild
 using namespace std;
 
 class Graph
@@ -26,8 +25,8 @@ public:
         for (int i = 0; i < V; i++)
         {
             cout << i << " : ";
-            for (int neigh : l[i])
-                cout << neigh << " ";
+            for (int neighbor : l[i])
+                cout << neighbor << " ";
             cout << endl;
         }
     }
